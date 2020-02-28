@@ -40,4 +40,9 @@ shift + cmd - k : yabai -m window --warp north
 shift + cmd - l : yabai -m window --warp east
 
 # Rest magic
-alt + shift - p : yabai -m window --toggle pip
+shift + alt - p : yabai -m window --toggle pip
+shift + alt - f : yabai -m window --toggle float
+
+# VPN magic
+cmd + alt - l : networksetup -connectpppoeservice "Prague"
+cmd + alt - k : networksetup -disconnectpppoeservice "Prague" 
