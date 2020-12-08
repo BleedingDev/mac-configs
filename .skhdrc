@@ -44,5 +44,5 @@ shift + alt - p : yabai -m window --toggle pip
 shift + alt - f : yabai -m window --toggle float
 
 # VPN magic
-cmd + alt - l : networksetup -connectpppoeservice "Prague"
-cmd + alt - k : networksetup -disconnectpppoeservice "Prague" 
+cmd + alt - l : networksetup -connectpppoeservice "Dev-VPN"
+cmd + alt - k : networksetup -disconnectpppoeservice "Dev-VPN" 
