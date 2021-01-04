@@ -1,2 +1,30 @@
-path = ["/usr/bin", "/bin", "/usr/sbin", "/sbin", "/usr/local/bin"]
-prompt = "echo $(starship prompt)"
+startup = [
+   "def z [a] {if $(echo $a | empty?) == $true { cd ~ } {echo $a | each { if $it == '-' { cd - } {cd $(zoxide query -- $it | str trim)}}}}",
+    "def zi [a] {echo $(do -i {zoxide query -i $a} | str trim) | each { cd $it }}",
+    "def za [a:block] {zoxide add $a}",
+    "def zq [a] {zoxide query -- $a}",
+    "def zl [] {zoxide query --list}",
+    "def zqi [a] {echo $(do -i {zoxide query -i $a | str trim }) | each { cd $it }}",
+    "def zr [a] {zoxide remove $a}",
+    "def zri [a] {zoxide remove -i $a}",
+]
+
+path = ["/Users/petr.glaser/.cargo/bin", "/usr/local/opt/node@12/bin", "/usr/local/bin", "/usr/local/sbin", "/usr/bin", "/bin", "/usr/sbin", "/sbin", "/usr/local/opt"]
+prompt = "za $(pwd) | echo $(starship prompt)"
+skip_welcome_message = true
+disable_table_indexes = false
+complete_from_path = true
+rm_always_trash = true
+
+[line_editor]
+max_history_size = 100000
+history_duplicates = "alwaysadd" # alwaysadd,ignoreconsecutive
+history_ignore_space = true
+completion_type = "circular" # circular, list, fuzzy
+completion_prompt_limit = 1
+keyseq_timeout_ms = 500 # ms, ignored is edit_mode = emacs
+edit_mode = "vi" # vi, emacs
+auto_add_history = true
+bell_style = "audible" # audible, none, visible
+color_mode = "enabled" # enabled, forced, disabled
+tab_stop = 4
